@@ -1,0 +1,623 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<style>
+    /** BEGIN: Non Openmrs CSS **/
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+* {
+	font-family: "Roboto";
+}
+div.container {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-around;
+	margin-top: 30px;
+	border: 1px solid whitesmoke;
+	padding: 21px;
+	border-radius: 4px;
+}
+h4.title {
+	text-align: center;
+	margin-bottom: 45px;
+}
+:root {
+	--omrs-color-ink-lowest-contrast: rgba(47, 60, 85, 0.18);
+	--omrs-color-ink-low-contrast: rgba(60, 60, 67, 0.3);
+	--omrs-color-ink-medium-contrast: rgba(19, 19, 21, 0.6);
+	--omrs-color-interaction: #1e4bd1;
+	--omrs-color-interaction-minus-two: rgba(73, 133, 224, 0.12);
+	--omrs-color-danger: #b50706;
+	--omrs-color-bg-low-contrast: #eff1f2;
+	--omrs-color-ink-high-contrast: #121212;
+	--omrs-color-bg-high-contrast: #ffffff;
+	
+}
+/** END: Non Openmrs CSS **/
+div.omrs-input-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+  width: 20.4375rem;
+}
+div.ors-input-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+  width: 20.4375rem;
+}
+/* Input*/
+.omrs-input-underlined > input,
+.omrs-input-filled > input {
+	border: none;
+	border-bottom: 0.125rem solid var(--omrs-color-ink-medium-contrast);
+	width: 20%;
+	height: 2rem;
+	font-size: 1.0625rem;
+	padding-left: 0.875rem;
+	line-height: 147.6%;
+	padding-top: 1.825rem;
+    padding-bottom: 0.6rem;
+}
+.ors-input-underlined > input,
+.ors-input-filled > input {
+	border: none;
+	border-bottom: 0.125rem solid var(--omrs-color-ink-medium-contrast);
+	width: 100%;
+	height: 2rem;
+	font-size: 1.0625rem;
+	padding-left: 0.875rem;
+	line-height: 147.6%;
+	padding-top: 1.825rem;
+    padding-bottom: 0.6rem;
+}
+.ors-input-underlined > input:focus,
+.ors-input-filled > input:focus {
+	outline: none;
+}
+
+.ors-input-underlined > .ors-input-label,
+.ors-input-filled > .ors-input-label {
+	position: absolute;
+	top: 0.9375rem;
+	left: 0.3rem;
+	line-height: 147.6%;
+	color: var(--omrs-color-ink-medium-contrast);
+	transition: top .2s;
+}
+.ors-input-underlined > input::content,
+.ors-input-filled > input::content {
+	background: var(--omrs-color-interaction-minus-two);
+	border-color: var(--omrs-color-ink-high-contrast);
+}
+
+.ors-input-underlined > input:focus + .ors-input-label,
+.ors-input-underlined > input:valid + .ors-input-label,
+.ors-input-filled > input:focus + .ors-input-label,
+.ors-input-filled > input:valid + .ors-input-label {
+	top: 0;
+	font-size: 0.9375rem;
+	margin-bottom: 32px;
+}
+
+.omrs-input-underlined > input:focus,
+.omrs-input-filled > input:focus {
+	outline: none;
+}
+
+.omrs-input-underlined > .omrs-input-label,
+.omrs-input-filled > .omrs-input-label {
+	position: absolute;
+	top: 0.9375rem;
+	left: 0.3rem;
+	line-height: 147.6%;
+	color: var(--omrs-color-ink-medium-contrast);
+	transition: top .2s;
+}
+.omrs-input-underlined > input::content,
+.omrs-input-filled > input::content {
+	background: var(--omrs-color-interaction-minus-two);
+	border-color: var(--omrs-color-ink-high-contrast);
+}
+
+.omrs-input-underlined > input:focus + .omrs-input-label,
+.omrs-input-underlined > input:valid + .omrs-input-label,
+.omrs-input-filled > input:focus + .omrs-input-label,
+.omrs-input-filled > input:valid + .omrs-input-label {
+	top: 0;
+	font-size: 0.9375rem;
+	margin-bottom: 32px;
+}
+
+
+</style>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    /* Create two equal columns that floats next to each other */
+    .column1 {
+        float: left;
+        width: 30%;
+        padding: 10px;
+        /* Should be removed. Only for demonstration */
+    }
+    .column2{
+        float: left;
+        width: 25%;
+        padding: 10px;
+    }
+    .column3{
+        float: left;
+        width: 25%;
+        padding: 10px;
+    }
+    .column4{
+        float: right;
+        margin-top: -735px;
+        width: 25%;
+        padding: 10px;
+    }
+    .areas{
+        padding-left: 190px;
+    }
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+</style>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .img-zoom-container {
+        position: relative;
+    }
+    .can{
+        margin-left: 80px;
+    }
+    .img-zoom-lens {
+        position: absolute;
+        margin-left: 10px;
+        margin-top: 30px;
+        border: 1px solid #d4d4d4;
+        /*set the size of the lens:*/
+        width: 20px;
+        height: 20px;
+    }
+
+    .img-zoom-result {
+        border: 1px solid #d4d4d4;
+        /*set the size of the result div:*/
+        width: 300px;
+        height: 300px;
+    }
+</style>
+<style>
+    .button {
+    display: inline-block;
+    margin-top: 30px;
+    padding-left: 50px;
+    padding-right: 50px;    
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: rgb(12, 4, 4);
+    background-color: rgb(228, 149, 238);
+    border: none;
+    padding: 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 0 9px rgb(69, 82, 155);
+}
+
+.button:active {
+    background-color: rgb(228, 149, 238);
+    box-shadow: 0 5px rgb(188, 44, 207);
+    transform: translateY(4px);
+}
+.buttoncheck {
+    background-color: #22e632;
+    box-shadow: 0 9px rgb(29, 119, 69);
+}
+.buttonundo{
+    background-color: #eef10c;
+    box-shadow: 0 9px rgb(121, 139, 36);
+}
+.buttonredo {
+    background-color: #2dcde2;
+}
+.buttongene {
+    margin-top: -80px;
+    margin-left: 340px;
+    background-color: #2dcde2;
+}
+.buttonclear{
+    background-color: #dd1313;
+    box-shadow: 0 9px rgb(150, 48, 45);
+    color: white;
+}
+.button2 {
+    background-color: #008CBA;
+}
+.mb{
+    height: 300px;
+    width: 300px;
+    overflow: scroll;
+}
+</style>
+<style>
+    .filepath{
+        margin-left: -50px;
+    }
+    a {
+        text-decoration: none;
+        display: inline-block;
+        padding: 8px 16px;
+    }
+
+    a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    .previous {
+        background-color: #f1f1f1;
+        color: black;
+    }
+
+    .next {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .round {
+        border-radius: 50%;
+    }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
+<script>
+    function startxfunction(startxpoint){
+        if(startxpoint>0){
+            document.getElementById("startx").value = startxpoint;
+        }
+        else{
+            document.getElementById("startx").value = "Null";
+        }
+    }
+    function startyfunction(startypoint) {
+        if (startypoint > 0) {
+            document.getElementById("starty").value = startypoint;
+        }
+        else {
+            document.getElementById("starty").value = "Null";
+        }
+    }
+    function endxfunction(endxpoint) {
+        if (endxpoint > 0) {
+            document.getElementById("endx").value = endxpoint;
+        }
+        else {
+            document.getElementById("endx").value = "Null";
+        }
+    }
+    function endyfunction(endypoint) {
+        if (endypoint > 0) {
+            document.getElementById("endy").value = endypoint;
+        }
+        else {
+            document.getElementById("endy").value = "Null";
+        }
+    }
+    function areafunction(a) {
+        document.getElementById("area").value = a;
+    }
+    function heightfunction(h){
+        if(h>0){
+            document.getElementById("height").value = h;
+        }
+        else{
+            document.getElementById("height").value = "Null";
+        }
+    }
+    function widthfunction(w){
+        if(w>0){
+            document.getElementById("width").value = w;
+        }
+        else{
+            document.getElementById("width").value = "Null";
+        }
+    }
+    function imageZoom(imgID, resultID) {
+        var img, lens, result, cx, cy, xcoordinate, ycoordinate;
+        img = document.getElementById(imgID);
+        result = document.getElementById(resultID);
+        /*create lens:*/
+        lens = document.createElement("DIV");
+        lens.setAttribute("class", "img-zoom-lens");
+        /*insert lens:*/
+        img.parentElement.insertBefore(lens, img);
+        /*calculate the ratio between result DIV and lens:*/
+        cx = result.offsetWidth / lens.offsetWidth;
+        cy = result.offsetHeight / lens.offsetHeight;
+        /*set background properties for the result DIV:*/
+        result.style.backgroundImage = "url('" + img.src + "')";
+        result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+        setcoord(result.style.backgroundSize = (img.width * cx) ,  (img.height * cy))
+        /*execute a function when someone moves the cursor over the image, or the lens:*/
+        lens.addEventListener("click", moveLens);
+        img.addEventListener("click", moveLens);
+        /*and also for touch screens:*/
+        lens.addEventListener("touchmove", moveLens);
+        img.addEventListener("touchmove", moveLens);
+        function moveLens(e) {
+            var pos, x, y;
+            /*prevent any other actions that may occur when moving over the image:*/
+            e.preventDefault();
+            /*get the cursor's x and y positions:*/
+            pos = getCursorPos(e);
+            /*calculate the position of the lens:*/
+            x = pos.x - (lens.offsetWidth / 2);
+            y = pos.y - (lens.offsetHeight / 2);
+            /*prevent the lens from being positioned outside the image:*/
+            if (x > img.width - lens.offsetWidth) { x = img.width - lens.offsetWidth; }
+            if (x < 0) { x = 0; }
+            if (y > img.height - lens.offsetHeight) { y = img.height - lens.offsetHeight; }
+            if (y < 0) { y = 0; }
+            /*set the position of the lens:*/
+            lens.style.left = x + "px";
+            lens.style.top = y + "px";
+            /*display what the lens "sees":*/
+            // final result
+            result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
+            xcoordinate = "-" + (x * cx)
+            ycoordinate = "-" + (y * cy) 
+            document.getElementById("xcoord").value = Math.round(xcoordinate);
+            document.getElementById("ycoord").value = Math.round(ycoordinate);
+            // document.getElementById("myimage").src = "../ image--002.jpg"
+        }
+        function getCursorPos(e) {
+            var a, x = 0, y = 0;
+            e = e || window.event;
+            /*get the x and y positions of the image:*/
+            a = img.getBoundingClientRect();
+            /*calculate the cursor's x and y coordinates, relative to the image:*/
+            x = e.pageX - a.left;
+            y = e.pageY - a.top;
+            /*consider any page scrolling:*/
+            x = x - window.pageXOffset;
+            y = y - window.pageYOffset;
+            return { x: x, y: y };
+        }
+    }
+</script>
+
+<head>
+    <link rel="icon" href="./vit.ico" type="vit/ico">
+    <title>Vishnu DPC</title>
+    <style>
+        body {
+	display: flex;
+	height: 100vh;
+
+	align-items: center;
+	justify-content: center;
+}
+
+.btn-liquid {
+	display: inline-block;
+	position: relative;
+	width: 240px;
+	height: 60px;
+    cursor: pointer;
+	border-radius: 27px;
+	color: #fff;
+	font: 700 14px/60px "Droid Sans", sans-serif;
+	letter-spacing: 0.05em;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.btn-liquid .inner {
+	position: relative;
+
+	z-index: 2;
+}
+
+.btn-liquid canvas {
+	position: absolute;
+	top: -50px;
+	right: -50px;
+	bottom: -50px;
+	left: -50px;
+
+	z-index: 1;
+}
+    </style>
+</head>
+<body onload="InitThis();">
+    <div class="row">
+        <div class="img-zoom-container column1">
+            <input type='file' onchange="readURL(this);" />
+            <input type="text" id="filepath" value="" class="filepath"/>
+            <img id="myimage" src="http://placehold.it/180" alt="your image" width="370" height="240"/>
+            <!-- <img id="myimage" src="image--002.bmp" width="300" height="240"> -->
+            <div id="myresult" class="img-zoom-result " ></div>
+            <button onclick="javascript:rer(getElementById('xcoord').value, getElementById('ycoord').value, getElementById('filepath').value),cleararea();return false;" class="button buttonundo" style="color: rgb(12, 1, 1);">Render</button>
+        </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="canvasdraw.js"></script>
+    <div class="column2">
+        <div>
+            <canvas id="myCanvas" width="300" height="300" style="border:2px solid black" class="can"></canvas>
+        </div>
+        <div align="center">
+            <br /><br />
+            <button onclick="javascript:cUndo();return false;" class="button buttonundo" style="color: rgb(17, 4, 4);">Undo</button>
+            Line width : <select id="selWidth">
+                <option value="1" selected="selected">1</option>
+                <option value="3">3</option>
+                <option value="5">5</option>
+                <option value="7">7</option>
+                <option value="9">9</option>
+                <option value="11">11</option>
+            </select>
+            Color : <select id="selColor">
+                <option value="black">black</option>
+                <option value="blue" selected="selected">blue</option>
+                <option value="red">red</option>
+                <option value="green">green</option>
+                <option value="yellow">yellow</option>
+                <option value="gray">gray</option>
+            </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button onclick="javascript:cRedo();return false;" class="button buttonredo" style="color: rgb(5, 5, 5);">Redo</button>
+            <button onclick="javascript:cleararea();return false;" class="button buttonclear" style="color: rgb(8, 8, 8);">Clear Area</button>
+            <button onclick="javascript:cCheck();getvalues();return false;" class="button buttoncheck" style="color: rgb(3, 3, 3);">Check</button>
+        </div>
+    </div>
+    <div class="column3 mad">
+        <div>
+            <div>
+                <form>
+                    <div class="omrs-input-group">
+                        <label class="omrs-input-underlined">
+                            <input required  id="startx" value="">
+                            <span class="omrs-input-label"> Inital X</span>
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div>
+                <form>
+                    <div class="omrs-input-group">
+                        <label class="omrs-input-underlined">
+                            <input required id="endx" value="">
+                            <span class="omrs-input-label">Final X</span>
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div>
+                <form>
+                    <div class="omrs-input-group">
+                        <label class="omrs-input-underlined">
+                            <input required id="height" value="">
+                            <span class="omrs-input-label">Height</span>
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div>
+                <form class="areas">
+                    <div class="omrs-input-group">
+                        <label class="omrs-input-underlined">
+                            <input required id="area" value="">
+                            <span class="omrs-input-label">Area</span>
+                        </label>
+                    </div>
+                </form>
+                <form class="filename">
+                    <div class="ors-input-group">
+                        <label class="ors-input-underlined">
+                            <input required id="pdfname" value="">
+                            <span class="ors-input-label">FileName</span>
+                        </label>
+                    </div>
+                </form>
+                <form class="filename">
+                    <div class="ors-input-group">
+                        <label class="ors-input-underlined">
+                            <input required id="NameOfTheDoctor" value="">
+                            <span class="ors-input-label">Name Of The Doctor</span>
+                        </label>
+                    </div>
+                </form>
+                <form class="filename">
+                    <div class="ors-input-group">
+                        <label class="ors-input-underlined">
+                            <input required id="Demography" value="">
+                            <span class="ors-input-label">Demography Of The Patient</span>
+                        </label>
+                    </div>
+                </form>
+                <form class="filename">
+                    <div class="ors-input-group">
+                        <label class="ors-input-underlined">
+                            <input required id="OPDNumber" value="">
+                            <span class="ors-input-label">OPD Number</span>
+                        </label>
+                    </div>
+                </form>
+                <form class="filename">
+                    <div class="ors-input-group">
+                        <label class="ors-input-underlined">
+                            <input required id="ToothNumber" value="">
+                            <span class="ors-input-label">Tooth Number</span>
+                        </label>
+                    </div>
+                </form>
+                <form class="filename">
+                    <div class="ors-input-group">
+                        <label class="ors-input-underlined">
+                            <input required id="ProcedureDetails" value="">
+                            <span class="ors-input-label">Procedure Details</span>
+                        </label>
+                    </div>
+                </form>
+                <form class="filename">
+                    <div class="ors-input-group">
+                        <label class="ors-input-underlined">
+                            <input required id="RecallTime" value="">
+                            <span class="ors-input-label">Recall Time</span>
+                        </label>
+                    </div>
+                </form>
+                <button class="btn-liquid" onclick="javascript:generate();return false;" class="button buttongene">
+                    <span class="inner">Genereate</span>
+                </button>
+                <!-- <button onclick="javascript:generate();return false;" class="button buttongene" style="color: rgb(14, 13, 13);">Genereate</button> -->
+            </div>
+        </div>
+    </div>
+    <div class="column4">
+        <div>
+            <form>
+                <div class="omrs-input-group">
+                    <label class="omrs-input-underlined">
+                        <input required id="starty" value="">
+                        <span class="omrs-input-label">Initial Y</span>
+                    </label>
+                </div>
+            </form>
+        </div>
+        <div>
+            <form>
+                <div class="omrs-input-group">
+                    <label class="omrs-input-underlined">
+                        <input required id="endy" value="">
+                        <span class="omrs-input-label">Final Y</span>
+                    </label>
+                </div>
+            </form>
+        </div>
+        <div>
+            <form>
+                <div class="omrs-input-group">
+                    <label class="omrs-input-underlined">
+                        <input required id="width" value="">
+                        <span class="omrs-input-label">Width</span>
+                    </label>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    <script>
+        imageZoom("myimage", "myresult");
+    </script>
+    <input type="number" id="xcoord" value=0 disabled hidden/>
+    <input type="number" id="ycoord" value=0 disabled hidden/>
+</body>
+</html>
